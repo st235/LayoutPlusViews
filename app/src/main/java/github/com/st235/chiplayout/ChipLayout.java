@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -93,7 +94,8 @@ public class ChipLayout extends ViewGroup {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int childCount = getChildCount();
-        final int preMeasuredWidth = MeasureSpec.getSize(widthMeasureSpec);
+        final int preMeasuredWidth = MeasureSpec.getSize(widthMeasureSpec)
+                - getPaddingLeft() - getPaddingRight();
 
         int childState = 0;
 
@@ -182,7 +184,7 @@ public class ChipLayout extends ViewGroup {
             if (maxHeight < height)
                 maxHeight = height;
 
-            left += width + params.leftMargin + params.rightMargin;
+            left += width;
         }
     }
 
