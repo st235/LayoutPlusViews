@@ -102,9 +102,7 @@ public class ChipLayout extends ViewGroup {
         int width = 0;
         int height = 0;
 
-        int allChildWidth = 0;
-
-        int rowCount = 0;
+        int currentRowWidth = 0;
 
         for (int i = 0; i < childCount; i++) {
             final View child = getChildAt(i);
@@ -118,11 +116,11 @@ public class ChipLayout extends ViewGroup {
                     widthMeasureSpec, 0, heightMeasureSpec, 0);
 
             width += Math.max(width, child.getMeasuredWidth() + horizontalMargins);
-            allChildWidth += child.getMeasuredWidth() + horizontalMargins;
+            currentRowWidth += child.getMeasuredWidth() + horizontalMargins;
 
-            if ((allChildWidth / preMeasuredWidth) > rowCount) {
+            if (currentRowWidth > preMeasuredWidth) {
                 height += child.getMeasuredHeight() + verticalMargins;
-                rowCount++;
+                currentRowWidth = child.getMeasuredWidth() + horizontalMargins;
             } else {
                 height = Math.max(height, child.getMeasuredHeight() + verticalMargins);
             }
