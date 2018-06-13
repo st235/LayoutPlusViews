@@ -9,6 +9,8 @@ android {
         targetSdkVersion 27
         versionCode 2
         versionName "1.0"
+
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
@@ -26,5 +28,6 @@ android {
 
 dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.1'
 }
