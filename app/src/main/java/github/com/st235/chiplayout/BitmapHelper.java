@@ -3,7 +3,9 @@ package github.com.st235.chiplayout;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.annotation.CheckResult;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 
 public class BitmapHelper {
@@ -11,9 +13,12 @@ public class BitmapHelper {
     private BitmapHelper() {
     }
 
-    public static Bitmap decodeSampledBitmapFromResource(Resources res,
+    @NonNull
+    @CheckResult
+    public static Bitmap decodeSampledBitmapFromResource(@NonNull Resources res,
                                                          @DrawableRes int resId,
-                                                         int reqWidth, int reqHeight) {
+                                                         @IntRange(from = 0) int reqWidth,
+                                                         @IntRange(from = 0) int reqHeight) {
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeResource(res, resId, options);
@@ -24,8 +29,10 @@ public class BitmapHelper {
         return BitmapFactory.decodeResource(res, resId, options);
     }
 
-    public static int calculateInSampleSize(
-            @NonNull BitmapFactory.Options options, int reqWidth, int reqHeight) {
+    @CheckResult
+    private static int calculateInSampleSize(@NonNull BitmapFactory.Options options,
+                                             @IntRange(from = 0) int reqWidth,
+                                             @IntRange(from = 0) int reqHeight) {
         final int height = options.outHeight;
         final int width = options.outWidth;
         int inSampleSize = 1;

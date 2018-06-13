@@ -11,7 +11,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -30,14 +29,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final AppCompatImageView feedImage = findViewById(R.id.insta_image);
-        feedImage.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                feedImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                feedImage.setImageBitmap(BitmapHelper.decodeSampledBitmapFromResource(getResources(),
-                        R.drawable.cat2, PROFILE_PICTURE_SIZE, PROFILE_PICTURE_SIZE));
-            }
-        });
+        feedImage.setImageBitmap(BitmapHelper.decodeSampledBitmapFromResource(getResources(),
+                R.drawable.cat2, PROFILE_PICTURE_SIZE, PROFILE_PICTURE_SIZE));
 
         final ChipLayout tagsChipLayout = findViewById(R.id.tag_layout);
         String[] tags = getResources().getStringArray(R.array.cats_tags);
