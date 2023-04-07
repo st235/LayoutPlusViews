@@ -3,7 +3,16 @@
 <img src="https://raw.githubusercontent.com/st235/LayoutPlusViews./master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" width="128" height="128">
 
 ## About
+
 Application is an implementation example of custom View and ViewGroup logic.
+
+### Screens
+
+| Main                       | Scrolled                                |
+|----------------------------|-----------------------------------------|
+| ![Main](./images/main.png) | ![Scrolled](./images/main_scrolled.png) |
+
+### Misc
 
 Photos were taken from [unsplash](https://unsplash.com/)
 
@@ -11,7 +20,7 @@ Photos were taken from [unsplash](https://unsplash.com/)
 
 MIT License
 
-Copyright (c) 2018 Alexander Dadukin
+Copyright (c) 2018-2023 Alexander Dadukin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

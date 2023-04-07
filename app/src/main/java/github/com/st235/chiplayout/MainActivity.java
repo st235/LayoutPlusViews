@@ -2,17 +2,18 @@ package github.com.st235.chiplayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Px;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.view.ContextThemeWrapper;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Px;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ContextThemeWrapper;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,15 +25,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final AppCompatImageView feedImage = findViewById(R.id.insta_image);
+        AppCompatImageView feedImage = findViewById(R.id.insta_image);
         feedImage.setImageBitmap(BitmapHelper.decodeSampledBitmapFromResource(getResources(),
                 R.drawable.cat2, PROFILE_PICTURE_SIZE, PROFILE_PICTURE_SIZE));
 
-        final ChipLayout tagsChipLayout = findViewById(R.id.tag_layout);
+        ChipLayout tagsChipLayout = findViewById(R.id.tag_layout);
         String[] tags = getResources().getStringArray(R.array.cats_tags);
 
         for (String tag: tags) {

@@ -1,11 +1,12 @@
 package github.com.st235.chiplayout;
 
+import static androidx.annotation.Dimension.DP;
+
 import android.content.res.Resources;
-import android.support.annotation.Dimension;
-import android.support.annotation.Px;
 import android.util.TypedValue;
 
-import static android.support.annotation.Dimension.DP;
+import androidx.annotation.Dimension;
+import androidx.annotation.Px;
 
 public final class Dimens {
 
